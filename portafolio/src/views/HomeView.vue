@@ -1,14 +1,24 @@
 <template>
    <body>
-   <div class="contenedor" style="display: flex; align-items: center; padding: 100px; gap: 20px;margin-bottom: 100px;">
+   <div class="contenedor" style="display: flex; align-items: center; padding: 100px; gap: 20px;">
      
       <div class="Texto-Inicio">
-         <p style=" font-weight: bold; font-size: 20px; color: color-mix(in hsl, #87CEEB 70%, #E0F7FA 30%);" class="nombre">HOLA,SOY ALVARO R.</p>
+         <p  style=" font-weight: bold; font-size: 20px; color: color-mix(in hsl, #87CEEB 70%, #E0F7FA 30%);" class="nombre">HOLA,SOY ALVARO R.</p>
          <h1 style="font-size: 65px; font-weight: bold; font-family: Georgia, serif;">  Soy un Desarrollador</h1>
          <p >Soy un desarrollador, me gusta tanto el Front como el Back. </p>
-         <p >....Tambien me gusta hacer contenido sobre diversos temas ya sea Juegos o temas de tegnologias.</p>
+         <p >....Tambien me gusta hacer contenido sobre diversos temas ya sea Juegos o tegnologias.</p>
       </div>
    </div>
+   
+ <div class="full-screen-container">
+    <div class="conoceme">
+      <h1 class="animated-title">
+        <a href="#"><router-link class="nav-link" active-class="active" to="/about">Sigueme conociendo</router-link></a> 
+        <span class="arrow" style="font-size: 30px;">→</span>
+      </h1>
+    </div>
+  </div>
+  
    <div class="img-tech" style="display: flex; align-items: center;  " >
       <img  :src="py"></img>
       <img  :src="js"></img>
@@ -30,13 +40,84 @@ import HTML from '../imagenes/iconos-tech/html5.png'
 </script>
 
 <style  scoped>
+
+
+.nombre {
+  animation: 
+    floating 3s ease-in-out infinite,
+    pulse 2s ease-in-out infinite,
+    color-shift 8s infinite alternate;
+  display: inline-block;
+  text-shadow: 0 0 10px rgba(135, 206, 235, 0.3);
+  transition: all 0.3s ease;
+}
+
+@keyframes floating {
+  0%, 100% { transform: translateY(0) rotate(0.5deg); }
+  50% { transform: translateY(-8px) rotate(-0.5deg); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.8; }
+}
+
+@keyframes color-shift {
+  0% { color: color-mix(in hsl, #87CEEB 70%, #E0F7FA 30%); }
+  33% { color: color-mix(in hsl, #87CEEB 50%, #E0F7FA 50%); }
+  66% { color: color-mix(in hsl, #87CEEB 30%, #E0F7FA 70%); }
+  100% { color: color-mix(in hsl, #87CEEB 70%, #E0F7FA 30%); }
+}
+
+
+
+.full-screen-container {
+  display: flex;
+  justify-content: center; /* Centrado horizontal */
+  align-items: center;     /* Centrado vertical */
+  margin-bottom: 100px;
+}
+
+
+.conoceme{
+   border: solid black;
+    display: flex; 
+    align-items: center;
+     width: 210px;
+      padding: 5px;
+}
+.conoceme :hover{
+  
+  color: white;
+}
+
+.animated-title {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.arrow {
+  display: inline-block;
+  animation: bounce 0.3s infinite alternate;
+}
+
+@keyframes bounce {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(5px);
+  }
+}
 body{
    min-height: 100vh;
    margin: 0;
   padding: 0;
-   background: linear-gradient(135deg, #8d9c9e 0%, #2d91c0 100%);
-    font-family: 'Arial', sans-serif;
-    padding: 2rem;
+  background: linear-gradient(135deg, #8d9c9e 0%, #2d91c0 100%);
+  font-family: 'Arial', sans-serif;
+  padding: 2rem;
+   
 }
 
 .Texto-Inicio p {
